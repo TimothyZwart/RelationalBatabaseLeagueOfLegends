@@ -1,0 +1,15 @@
+SELECT Characters.Char_Name
+FROM Characters, Roles_Primary
+WHERE 
+Characters.char_ID=Roles_Primary.CHAR_ID
+AND Roles_Primary.ROLE_ID
+IN(
+SELECT ROLES.Role_ID
+FROM Roles,Roles_Primary
+WHERE Roles.ROLE_ID = Roles_PRimary.ROLE_ID
+Group by Roles.ROLE_ID
+Having Count(Roles_primary.Char_ID)>(SELECT Count(Roles_Primary.ROLE_ID)
+FROM ROLES_PRIMARY, ROLES
+WHERE ROLES.ROLE_TITLE='Marksman'
+AND ROLES.ROLE_ID =ROLES_PRIMARY.ROLE_ID)
+);

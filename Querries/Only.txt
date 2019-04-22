@@ -1,0 +1,7 @@
+SELECT DISTINCT characters.char_name
+From Characters
+Where Characters.Char_id Not IN(
+SELECT Skins.CHAR_ID
+FROM Skins 
+Where skins.SKIN_TYPE <> 'Event'
+);

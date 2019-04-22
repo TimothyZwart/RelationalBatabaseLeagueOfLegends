@@ -1,0 +1,6 @@
+SELECT Distinct Origin_Places.ORIGIN_NAME,Characters.CHAR_NAME
+FROM Origin Right outer Join Characters on Origin.CHAR_ID = Characters.CHAR_ID
+AND Characters.CHAR_GENDER='m'
+Right outer join ORIGIN_PLACES on Origin_Places.ORIGIN_ID = Origin.ORIGIN_ID
+ORDER by ORIGIN_PLACES.ORIGIN_NAME
+;

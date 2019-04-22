@@ -1,0 +1,6 @@
+SELECT Characters.Char_name, R1.ROLE_TITLE AS Role_Primary, R2.ROLE_TITLE AS Role_Secondary
+FROM Characters left Outer Join ROLES_PRIMARY on Characters.char_ID = Roles_Primary.char_ID
+Left Outer Join Roles_Secondary on Characters.Char_ID = Roles_Secondary.CHAR_ID
+Left Outer Join ROLES R1 on ROLES_PRIMARY.ROLE_ID= R1.ROLE_ID
+Left OUTER JOIN Roles R2 On  Roles_Secondary.Role_ID= R2.ROLE_ID
+Where Characters.CHAR_GENDER='f'

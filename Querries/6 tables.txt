@@ -1,0 +1,10 @@
+SELECT DISTINCT characters.Char_Name, origin_places.Origin_name, Count(Skins.Char_ID)AS Total_Skins
+FROM CHARACTERS, Origin, origin_places, voice, voice_actor,Skins
+WHERE Characters.char_Gender <> voice_actor.VOC_GENDER
+AND characters.char_id= Origin.char_id
+AND Origin.Origin_id = origin_places.ORIGIN_ID
+AND Characters.Char_ID= Origin.CHAR_ID
+AND Characters.Char_ID= Skins.CHAR_ID
+AND Characters.Char_ID= voice.CHAR_ID
+AND Voice.Voc_ID=voice_actor.VOC_ID
+GROUP BY CHARACTERS.CHAR_NAME, origin_places.ORIGIN_NAME;
